@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Productivity' target in the 'Productivity' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
