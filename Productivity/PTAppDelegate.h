@@ -7,8 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "PTMusicObserver.h"
 
-@interface PTAppDelegate : NSObject <NSApplicationDelegate>
+@interface PTAppDelegate : NSObject <NSApplicationDelegate> {
+    PTMusicObserver * observer;
+}
 
 @property (assign) IBOutlet NSWindow *window;
 

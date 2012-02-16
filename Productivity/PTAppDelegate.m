@@ -14,6 +14,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    observer = [[PTMusicObserver alloc] init];
+    [observer startObserving];
     // Insert code here to initialize your application
 }
 

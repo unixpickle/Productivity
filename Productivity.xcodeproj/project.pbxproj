@@ -13,6 +13,12 @@
 		FAA8C78C14EC80E6002D8152 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FAA8C78A14EC80E6002D8152 /* Credits.rtf */; };
 		FAA8C78F14EC80E6002D8152 /* PTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C78E14EC80E6002D8152 /* PTAppDelegate.m */; };
 		FAA8C79214EC80E7002D8152 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA8C79014EC80E7002D8152 /* MainMenu.xib */; };
+		FAA8C79B14EC8102002D8152 /* PTState.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C79A14EC8102002D8152 /* PTState.m */; };
+		FAA8C79E14EC81A8002D8152 /* PTStateObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C79D14EC81A8002D8152 /* PTStateObserver.m */; };
+		FAA8C7A214EC8289002D8152 /* PTMusicState.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C7A114EC8289002D8152 /* PTMusicState.m */; };
+		FAA8C7A514EC829A002D8152 /* PTMusicObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C7A414EC829A002D8152 /* PTMusicObserver.m */; };
+		FAA8C7AA14EC8949002D8152 /* PTPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C7A914EC8949002D8152 /* PTPeriod.m */; };
+		FAA8C7AD14EC89E2002D8152 /* PTPeriodManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C7AC14EC89E2002D8152 /* PTPeriodManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,14 +27,27 @@
 		FAA8C77E14EC80E6002D8152 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		FAA8C77F14EC80E6002D8152 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FAA8C78014EC80E6002D8152 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		FAA8C78314EC80E6002D8152 /* Productivity-Info.plist */ = {isa = PBXFileReference; path = "Productivity-Info.plist"; sourceTree = "<group>"; };
+		FAA8C78314EC80E6002D8152 /* Productivity-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Productivity-Info.plist"; sourceTree = "<group>"; };
 		FAA8C78514EC80E6002D8152 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FAA8C78714EC80E6002D8152 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FAA8C78914EC80E6002D8152 /* Productivity-Prefix.pch */ = {isa = PBXFileReference; path = "Productivity-Prefix.pch"; sourceTree = "<group>"; };
+		FAA8C78914EC80E6002D8152 /* Productivity-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Productivity-Prefix.pch"; sourceTree = "<group>"; };
 		FAA8C78B14EC80E6002D8152 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		FAA8C78D14EC80E6002D8152 /* PTAppDelegate.h */ = {isa = PBXFileReference; path = PTAppDelegate.h; sourceTree = "<group>"; };
+		FAA8C78D14EC80E6002D8152 /* PTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTAppDelegate.h; sourceTree = "<group>"; };
 		FAA8C78E14EC80E6002D8152 /* PTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTAppDelegate.m; sourceTree = "<group>"; };
 		FAA8C79114EC80E7002D8152 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		FAA8C79914EC8102002D8152 /* PTState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTState.h; sourceTree = "<group>"; };
+		FAA8C79A14EC8102002D8152 /* PTState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTState.m; sourceTree = "<group>"; };
+		FAA8C79C14EC81A8002D8152 /* PTStateObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTStateObserver.h; sourceTree = "<group>"; };
+		FAA8C79D14EC81A8002D8152 /* PTStateObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTStateObserver.m; sourceTree = "<group>"; };
+		FAA8C7A014EC8289002D8152 /* PTMusicState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTMusicState.h; sourceTree = "<group>"; };
+		FAA8C7A114EC8289002D8152 /* PTMusicState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTMusicState.m; sourceTree = "<group>"; };
+		FAA8C7A314EC829A002D8152 /* PTMusicObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTMusicObserver.h; sourceTree = "<group>"; };
+		FAA8C7A414EC829A002D8152 /* PTMusicObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTMusicObserver.m; sourceTree = "<group>"; };
+		FAA8C7A614EC86BE002D8152 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
+		FAA8C7A814EC8949002D8152 /* PTPeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPeriod.h; sourceTree = "<group>"; };
+		FAA8C7A914EC8949002D8152 /* PTPeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTPeriod.m; sourceTree = "<group>"; };
+		FAA8C7AB14EC89E2002D8152 /* PTPeriodManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPeriodManager.h; sourceTree = "<group>"; };
+		FAA8C7AC14EC89E2002D8152 /* PTPeriodManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTPeriodManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +101,8 @@
 		FAA8C78114EC80E6002D8152 /* Productivity */ = {
 			isa = PBXGroup;
 			children = (
+				FAA8C7A714EC893E002D8152 /* Periods */,
+				FAA8C79814EC80F7002D8152 /* States */,
 				FAA8C78D14EC80E6002D8152 /* PTAppDelegate.h */,
 				FAA8C78E14EC80E6002D8152 /* PTAppDelegate.m */,
 				FAA8C79014EC80E7002D8152 /* MainMenu.xib */,
@@ -100,6 +121,41 @@
 				FAA8C78A14EC80E6002D8152 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FAA8C79814EC80F7002D8152 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				FAA8C79F14EC8281002D8152 /* Custom States */,
+				FAA8C79914EC8102002D8152 /* PTState.h */,
+				FAA8C79A14EC8102002D8152 /* PTState.m */,
+				FAA8C79C14EC81A8002D8152 /* PTStateObserver.h */,
+				FAA8C79D14EC81A8002D8152 /* PTStateObserver.m */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
+		FAA8C79F14EC8281002D8152 /* Custom States */ = {
+			isa = PBXGroup;
+			children = (
+				FAA8C7A614EC86BE002D8152 /* iTunes.h */,
+				FAA8C7A014EC8289002D8152 /* PTMusicState.h */,
+				FAA8C7A114EC8289002D8152 /* PTMusicState.m */,
+				FAA8C7A314EC829A002D8152 /* PTMusicObserver.h */,
+				FAA8C7A414EC829A002D8152 /* PTMusicObserver.m */,
+			);
+			path = "Custom States";
+			sourceTree = "<group>";
+		};
+		FAA8C7A714EC893E002D8152 /* Periods */ = {
+			isa = PBXGroup;
+			children = (
+				FAA8C7A814EC8949002D8152 /* PTPeriod.h */,
+				FAA8C7A914EC8949002D8152 /* PTPeriod.m */,
+				FAA8C7AB14EC89E2002D8152 /* PTPeriodManager.h */,
+				FAA8C7AC14EC89E2002D8152 /* PTPeriodManager.m */,
+			);
+			path = Periods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +223,12 @@
 			files = (
 				FAA8C78814EC80E6002D8152 /* main.m in Sources */,
 				FAA8C78F14EC80E6002D8152 /* PTAppDelegate.m in Sources */,
+				FAA8C79B14EC8102002D8152 /* PTState.m in Sources */,
+				FAA8C79E14EC81A8002D8152 /* PTStateObserver.m in Sources */,
+				FAA8C7A214EC8289002D8152 /* PTMusicState.m in Sources */,
+				FAA8C7A514EC829A002D8152 /* PTMusicObserver.m in Sources */,
+				FAA8C7AA14EC8949002D8152 /* PTPeriod.m in Sources */,
+				FAA8C7AD14EC89E2002D8152 /* PTPeriodManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
