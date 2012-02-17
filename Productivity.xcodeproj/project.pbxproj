@@ -15,6 +15,9 @@
 		FAA8C79214EC80E7002D8152 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA8C79014EC80E7002D8152 /* MainMenu.xib */; };
 		FAA8C7A214EC8289002D8152 /* PTMusicState.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C7A114EC8289002D8152 /* PTMusicState.m */; };
 		FAA8C7A514EC829A002D8152 /* PTMusicObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C7A414EC829A002D8152 /* PTMusicObserver.m */; };
+		FACB24DD14EDE9C700D49789 /* PTKeyboardMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24D814EDE9C700D49789 /* PTKeyboardMonitor.m */; };
+		FACB24DE14EDE9C700D49789 /* PTPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24DA14EDE9C700D49789 /* PTPeriod.m */; };
+		FACB24DF14EDE9C700D49789 /* PTSession.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24DC14EDE9C700D49789 /* PTSession.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,12 @@
 		FAA8C7A614EC86BE002D8152 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
 		FACB24C714EDDF8200D49789 /* PTState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTState.h; sourceTree = "<group>"; };
 		FACB24C814EDE03700D49789 /* PTStateObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTStateObserver.h; sourceTree = "<group>"; };
+		FACB24D714EDE9C700D49789 /* PTKeyboardMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTKeyboardMonitor.h; sourceTree = "<group>"; };
+		FACB24D814EDE9C700D49789 /* PTKeyboardMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTKeyboardMonitor.m; sourceTree = "<group>"; };
+		FACB24D914EDE9C700D49789 /* PTPeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPeriod.h; sourceTree = "<group>"; };
+		FACB24DA14EDE9C700D49789 /* PTPeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTPeriod.m; sourceTree = "<group>"; };
+		FACB24DB14EDE9C700D49789 /* PTSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTSession.h; sourceTree = "<group>"; };
+		FACB24DC14EDE9C700D49789 /* PTSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTSession.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +100,7 @@
 		FAA8C78114EC80E6002D8152 /* Productivity */ = {
 			isa = PBXGroup;
 			children = (
-				FAA8C7A714EC893E002D8152 /* Periods */,
+				FACB24D614EDE9C700D49789 /* Sessions */,
 				FAA8C79814EC80F7002D8152 /* States */,
 				FAA8C78D14EC80E6002D8152 /* PTAppDelegate.h */,
 				FAA8C78E14EC80E6002D8152 /* PTAppDelegate.m */,
@@ -135,11 +144,17 @@
 			path = "Custom States";
 			sourceTree = "<group>";
 		};
-		FAA8C7A714EC893E002D8152 /* Periods */ = {
+		FACB24D614EDE9C700D49789 /* Sessions */ = {
 			isa = PBXGroup;
 			children = (
+				FACB24D714EDE9C700D49789 /* PTKeyboardMonitor.h */,
+				FACB24D814EDE9C700D49789 /* PTKeyboardMonitor.m */,
+				FACB24D914EDE9C700D49789 /* PTPeriod.h */,
+				FACB24DA14EDE9C700D49789 /* PTPeriod.m */,
+				FACB24DB14EDE9C700D49789 /* PTSession.h */,
+				FACB24DC14EDE9C700D49789 /* PTSession.m */,
 			);
-			path = Periods;
+			path = Sessions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +224,9 @@
 				FAA8C78F14EC80E6002D8152 /* PTAppDelegate.m in Sources */,
 				FAA8C7A214EC8289002D8152 /* PTMusicState.m in Sources */,
 				FAA8C7A514EC829A002D8152 /* PTMusicObserver.m in Sources */,
+				FACB24DD14EDE9C700D49789 /* PTKeyboardMonitor.m in Sources */,
+				FACB24DE14EDE9C700D49789 /* PTPeriod.m in Sources */,
+				FACB24DF14EDE9C700D49789 /* PTSession.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
