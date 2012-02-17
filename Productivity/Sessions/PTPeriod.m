@@ -27,4 +27,23 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if ((self = [super init])) {
+        states = [aDecoder decodeObjectForKey:@"states"];
+        periodDuration = [aDecoder decodeDoubleForKey:@"duration"];
+        idleDuration = [aDecoder decodeDoubleForKey:@"idleDuration"];
+        totalProductivity = [aDecoder decodeIntegerForKey:@"productivity"];
+        idleProductivity = [aDecoder decodeIntegerForKey:@"idleProductivity"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:states forKey:@"states"];
+    [aCoder encodeDouble:periodDuration forKey:@"duration"];
+    [aCoder encodeDouble:idleDuration forKey:@"idleDuration"];
+    [aCoder encodeInteger:totalProductivity forKey:@"productivity"];
+    [aCoder encodeInteger:idleProductivity forKey:@"idleProductivity"];
+}
+
 @end

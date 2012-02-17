@@ -41,9 +41,9 @@
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:songTitle forKey:@"title"];
-    [aCoder encodeObject:songArtist forKey:@"artist"];
-    [aCoder encodeObject:songAlbum forKey:@"album"];
+    if (songTitle) [aCoder encodeObject:songTitle forKey:@"title"];
+    if (songArtist) [aCoder encodeObject:songArtist forKey:@"artist"];
+    if (songAlbum) [aCoder encodeObject:songAlbum forKey:@"album"];
 }
 
 - (id)copyWithZone:(NSZone *)zone {

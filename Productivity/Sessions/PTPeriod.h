@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PTStateObserver.h"
 
-@interface PTPeriod : NSObject {
+@interface PTPeriod : NSObject <NSCoding> {
     NSArray * states;
     NSTimeInterval periodDuration;
     NSTimeInterval idleDuration;
