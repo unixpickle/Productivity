@@ -12,7 +12,7 @@
 
 #define kPlayerInfoNotificationName @"com.apple.iTunes.playerInfo"
 
-@interface PTMusicObserver : PTStateObserver {
+@interface PTMusicObserver : NSObject <PTStateObserver> {
 }
 
 - (PTMusicState *)musicState;

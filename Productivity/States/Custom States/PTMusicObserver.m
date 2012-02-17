@@ -16,6 +16,9 @@
 
 @implementation PTMusicObserver
 
+@synthesize state;
+@synthesize delegate;
+
 - (id)init {
     if ((self = [super init])) {
         iTunesApplication * application = [SBApplication applicationWithBundleIdentifier:@"com.apple.iTunes"];
@@ -28,7 +31,6 @@
         } else {
             state = [[PTMusicState alloc] initWithTitle:nil artist:nil album:nil];
         }
-        state.stateObserver = self;
     }
     return self;
 }
@@ -65,9 +67,8 @@
         NSString * album = [[notification userInfo] objectForKey:@"Album"];
         state = [[PTMusicState alloc] initWithTitle:title artist:artist album:album];
     }
-    state.stateObserver = self;
-    if ([delegate respondsToSelector:@selector(stateObserverStateChanged:)]) {
-        [delegate stateObserverStateChanged:self];
+    if ([delegate respondsToSelector:@selector(stateObserverChangedState:)]) {
+        [delegate stateObserverChangedState:self];
     }
 }
 

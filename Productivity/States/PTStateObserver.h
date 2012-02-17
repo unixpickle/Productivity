@@ -2,30 +2,24 @@
 //  PTStateObserver.h
 //  Productivity
 //
-//  Created by Alex Nichol on 2/15/12.
+//  Created by Alex Nichol on 2/16/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "PTState.h"
 
-@class PTStateObserver;
-
 @protocol PTStateObserverDelegate <NSObject>
 
 @optional
-- (void)stateObserverStateChanged:(PTStateObserver *)sender;
+- (void)stateObserverChangedState:(id)sender;
 
 @end
 
-@interface PTStateObserver : NSObject {
-    PTState * state;
-    __weak id<PTStateObserverDelegate> delegate;
-}
+@protocol PTStateObserver <NSObject>
 
-@property (readonly) PTState * state;
+@property (readonly, strong) id<PTState> state;
 @property (nonatomic, weak) id<PTStateObserverDelegate> delegate;
-
 - (void)startObserving;
 - (void)stopObserving;
 

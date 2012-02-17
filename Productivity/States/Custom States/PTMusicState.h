@@ -8,7 +8,7 @@
 
 #import "PTState.h"
 
-@interface PTMusicState : PTState {
+@interface PTMusicState : NSObject <PTState> {
     NSString * songTitle;
     NSString * songArtist;
     NSString * songAlbum;

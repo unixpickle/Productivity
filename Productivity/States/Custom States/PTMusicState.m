@@ -32,7 +32,7 @@
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    if ((self = [super initWithCoder:aDecoder])) {
+    if ((self = [super init])) {
         songTitle = [aDecoder decodeObjectForKey:@"title"];
         songArtist = [aDecoder decodeObjectForKey:@"artist"];
         songAlbum = [aDecoder decodeObjectForKey:@"album"];
@@ -51,7 +51,6 @@
     state = [[PTMusicState allocWithZone:zone] initWithTitle:[songTitle copy]
                                                       artist:[songArtist copy]
                                                        album:[songAlbum copy]];
-    state.stateObserver = self.stateObserver;
     return state;
 }
 
@@ -60,7 +59,7 @@
     return [NSString stringWithFormat:@"Playing %@", songTitle];
 }
 
-- (NSUInteger)hash {
+- (UInt32)stateHash {
     char hashBuff[4];
     int index = 0;
     
@@ -79,7 +78,7 @@
         index++;
         if (index == 4) index = 0;
     }
-    return (NSUInteger)*((UInt32 *)hashBuff);
+    return *((UInt32 *)hashBuff);
 }
 
 @end
