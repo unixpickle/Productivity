@@ -16,6 +16,8 @@
 
 @implementation PTSession
 
+@synthesize delegate;
+
 - (id)initWithStateObservers:(NSArray *)observers {
     if ((self = [super init])) {
         keyboardMonitor = [[PTKeyboardMonitor alloc] init];
@@ -78,8 +80,15 @@
 - (void)addPeriod:(PTPeriod *)period {
     NSDate * now = [NSDate date];
     NSTimeInterval sinceLast = [now timeIntervalSinceDate:lastUpdate];
-    [self currentPeriod].periodDuration += sinceLast;
-    if (idle) [self currentPeriod].idleDuration += sinceLast;
+    
+    if ([self currentPeriod]) {
+        [self currentPeriod].periodDuration += sinceLast;
+        if (idle) [self currentPeriod].idleDuration += sinceLast;
+        if ([delegate respondsToSelector:@selector(session:finishedPeriod:)]) {
+            [delegate session:self finishedPeriod:[self currentPeriod]];
+        }
+    }
+    
     lastUpdate = now;
     
     if (period) {

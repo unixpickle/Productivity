@@ -12,6 +12,7 @@
 		FAA088FE14EF2EA700713A44 /* PTLogEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA088FD14EF2EA700713A44 /* PTLogEntry.m */; };
 		FAA0890114EF2F1100713A44 /* PTLogDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA0890014EF2F1100713A44 /* PTLogDatabase.m */; };
 		FAA0890314EF2F5600713A44 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA0890214EF2F5600713A44 /* libsqlite3.dylib */; };
+		FAA0890D14EFF6F200713A44 /* PTObserverInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA0890C14EFF6F200713A44 /* PTObserverInfo.m */; };
 		FAA8C77C14EC80E6002D8152 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA8C77B14EC80E6002D8152 /* Cocoa.framework */; };
 		FAA8C78614EC80E6002D8152 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAA8C78414EC80E6002D8152 /* InfoPlist.strings */; };
 		FAA8C78814EC80E6002D8152 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C78714EC80E6002D8152 /* main.m */; };
@@ -34,6 +35,8 @@
 		FAA088FF14EF2F1100713A44 /* PTLogDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLogDatabase.h; sourceTree = "<group>"; };
 		FAA0890014EF2F1100713A44 /* PTLogDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLogDatabase.m; sourceTree = "<group>"; };
 		FAA0890214EF2F5600713A44 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		FAA0890B14EFF6F200713A44 /* PTObserverInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PTObserverInfo.h; sourceTree = "<group>"; };
+		FAA0890C14EFF6F200713A44 /* PTObserverInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTObserverInfo.m; sourceTree = "<group>"; };
 		FAA8C77714EC80E6002D8152 /* Productivity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Productivity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA8C77B14EC80E6002D8152 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FAA8C77E14EC80E6002D8152 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -85,6 +88,8 @@
 				FAA088FD14EF2EA700713A44 /* PTLogEntry.m */,
 				FAA088FF14EF2F1100713A44 /* PTLogDatabase.h */,
 				FAA0890014EF2F1100713A44 /* PTLogDatabase.m */,
+				FAA0890B14EFF6F200713A44 /* PTObserverInfo.h */,
+				FAA0890C14EFF6F200713A44 /* PTObserverInfo.m */,
 			);
 			path = "Period Log";
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 				FAA088FB14EF2E8500713A44 /* PTPeriodLog.m in Sources */,
 				FAA088FE14EF2EA700713A44 /* PTLogEntry.m in Sources */,
 				FAA0890114EF2F1100713A44 /* PTLogDatabase.m in Sources */,
+				FAA0890D14EFF6F200713A44 /* PTObserverInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

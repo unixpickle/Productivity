@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "PTLogDatabase.h"
+#import "PTObserverInfo.h"
 
 @interface PTPeriodLog : NSObject {
     NSCache * rowCache;
     NSMutableArray * entries;
     PTLogDatabase * database;
+    NSMutableArray * observers;
 }
 
 - (id)initWithLogFile:(NSString *)file;
+
+- (void)addLogObserver:(id<PTPeriodLogObserver>)observer;
+- (void)removeLogObserver:(id<PTPeriodLogObserver>)observer;
 
 - (NSArray *)periodIDs;
 - (PTPeriod *)periodWithID:(NSUInteger)integer;
