@@ -46,6 +46,7 @@
     NSUInteger addedID = [database insertPeriod:aPeriod];
     
     PTLogEntry * logEntry = [[PTLogEntry alloc] initWithID:addedID time:epoch];
+    // TODO: add this to the list more efficiently
     [entries addObject:logEntry];
     [entries sortUsingSelector:@selector(compare:)];
     // TODO: notify some kind of delegate
