@@ -1,5 +1,5 @@
 //
-//  PTObserverInfo.h
+//  PTLogObserver.h
 //  Productivity
 //
 //  Created by Alex Nichol on 2/18/12.
@@ -18,7 +18,7 @@
 
 @end
 
-@interface PTObserverInfo : NSObject {
+@interface PTLogObserver : NSObject {
     __weak id<PTPeriodLogObserver> observer;
 }
 

@@ -1,14 +1,14 @@
 //
-//  PTObserverInfo.m
+//  PTLogObserver.m
 //  Productivity
 //
 //  Created by Alex Nichol on 2/18/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "PTObserverInfo.h"
+#import "PTLogObserver.h"
 
-@implementation PTObserverInfo
+@implementation PTLogObserver
 
 @synthesize observer;
 

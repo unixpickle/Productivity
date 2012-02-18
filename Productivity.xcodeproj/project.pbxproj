@@ -12,7 +12,7 @@
 		FAA088FE14EF2EA700713A44 /* PTLogEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA088FD14EF2EA700713A44 /* PTLogEntry.m */; };
 		FAA0890114EF2F1100713A44 /* PTLogDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA0890014EF2F1100713A44 /* PTLogDatabase.m */; };
 		FAA0890314EF2F5600713A44 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA0890214EF2F5600713A44 /* libsqlite3.dylib */; };
-		FAA0890D14EFF6F200713A44 /* PTObserverInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA0890C14EFF6F200713A44 /* PTObserverInfo.m */; };
+		FAA0890D14EFF6F200713A44 /* PTLogObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA0890C14EFF6F200713A44 /* PTLogObserver.m */; };
 		FAA8C77C14EC80E6002D8152 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA8C77B14EC80E6002D8152 /* Cocoa.framework */; };
 		FAA8C78614EC80E6002D8152 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAA8C78414EC80E6002D8152 /* InfoPlist.strings */; };
 		FAA8C78814EC80E6002D8152 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C78714EC80E6002D8152 /* main.m */; };
@@ -21,6 +21,8 @@
 		FAA8C79214EC80E7002D8152 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA8C79014EC80E7002D8152 /* MainMenu.xib */; };
 		FAA8C7A214EC8289002D8152 /* PTMusicState.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C7A114EC8289002D8152 /* PTMusicState.m */; };
 		FAA8C7A514EC829A002D8152 /* PTMusicObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C7A414EC829A002D8152 /* PTMusicObserver.m */; };
+		FAAFD72614F053F6002332DF /* PTAppMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAFD72514F053F6002332DF /* PTAppMonitor.m */; };
+		FAAFD72914F05AE4002332DF /* PTAMObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAFD72814F05AE4002332DF /* PTAMObserver.m */; };
 		FACB24DD14EDE9C700D49789 /* PTKeyboardMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24D814EDE9C700D49789 /* PTKeyboardMonitor.m */; };
 		FACB24DE14EDE9C700D49789 /* PTPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24DA14EDE9C700D49789 /* PTPeriod.m */; };
 		FACB24DF14EDE9C700D49789 /* PTSession.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24DC14EDE9C700D49789 /* PTSession.m */; };
@@ -35,8 +37,8 @@
 		FAA088FF14EF2F1100713A44 /* PTLogDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLogDatabase.h; sourceTree = "<group>"; };
 		FAA0890014EF2F1100713A44 /* PTLogDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLogDatabase.m; sourceTree = "<group>"; };
 		FAA0890214EF2F5600713A44 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		FAA0890B14EFF6F200713A44 /* PTObserverInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PTObserverInfo.h; sourceTree = "<group>"; };
-		FAA0890C14EFF6F200713A44 /* PTObserverInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTObserverInfo.m; sourceTree = "<group>"; };
+		FAA0890B14EFF6F200713A44 /* PTLogObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLogObserver.h; sourceTree = "<group>"; };
+		FAA0890C14EFF6F200713A44 /* PTLogObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLogObserver.m; sourceTree = "<group>"; };
 		FAA8C77714EC80E6002D8152 /* Productivity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Productivity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA8C77B14EC80E6002D8152 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FAA8C77E14EC80E6002D8152 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -55,6 +57,10 @@
 		FAA8C7A314EC829A002D8152 /* PTMusicObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTMusicObserver.h; sourceTree = "<group>"; };
 		FAA8C7A414EC829A002D8152 /* PTMusicObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTMusicObserver.m; sourceTree = "<group>"; };
 		FAA8C7A614EC86BE002D8152 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
+		FAAFD72414F053F6002332DF /* PTAppMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTAppMonitor.h; sourceTree = "<group>"; };
+		FAAFD72514F053F6002332DF /* PTAppMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTAppMonitor.m; sourceTree = "<group>"; };
+		FAAFD72714F05AE4002332DF /* PTAMObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTAMObserver.h; sourceTree = "<group>"; };
+		FAAFD72814F05AE4002332DF /* PTAMObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTAMObserver.m; sourceTree = "<group>"; };
 		FACB24C714EDDF8200D49789 /* PTState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTState.h; sourceTree = "<group>"; };
 		FACB24C814EDE03700D49789 /* PTStateObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTStateObserver.h; sourceTree = "<group>"; };
 		FACB24D714EDE9C700D49789 /* PTKeyboardMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTKeyboardMonitor.h; sourceTree = "<group>"; };
@@ -88,8 +94,8 @@
 				FAA088FD14EF2EA700713A44 /* PTLogEntry.m */,
 				FAA088FF14EF2F1100713A44 /* PTLogDatabase.h */,
 				FAA0890014EF2F1100713A44 /* PTLogDatabase.m */,
-				FAA0890B14EFF6F200713A44 /* PTObserverInfo.h */,
-				FAA0890C14EFF6F200713A44 /* PTObserverInfo.m */,
+				FAA0890B14EFF6F200713A44 /* PTLogObserver.h */,
+				FAA0890C14EFF6F200713A44 /* PTLogObserver.m */,
 			);
 			path = "Period Log";
 			sourceTree = "<group>";
@@ -135,9 +141,11 @@
 		FAA8C78114EC80E6002D8152 /* Productivity */ = {
 			isa = PBXGroup;
 			children = (
+				FAAFD72214F053E3002332DF /* Focused App */,
 				FAA088F814EF2E7600713A44 /* Period Log */,
 				FACB24D614EDE9C700D49789 /* Sessions */,
 				FAA8C79814EC80F7002D8152 /* States */,
+				FAAFD74914F064AE002332DF /* Controller */,
 				FAA8C78D14EC80E6002D8152 /* PTAppDelegate.h */,
 				FAA8C78E14EC80E6002D8152 /* PTAppDelegate.m */,
 				FAA8C79014EC80E7002D8152 /* MainMenu.xib */,
@@ -178,6 +186,24 @@
 				FAA8C7A414EC829A002D8152 /* PTMusicObserver.m */,
 			);
 			path = "Custom States";
+			sourceTree = "<group>";
+		};
+		FAAFD72214F053E3002332DF /* Focused App */ = {
+			isa = PBXGroup;
+			children = (
+				FAAFD72414F053F6002332DF /* PTAppMonitor.h */,
+				FAAFD72514F053F6002332DF /* PTAppMonitor.m */,
+				FAAFD72714F05AE4002332DF /* PTAMObserver.h */,
+				FAAFD72814F05AE4002332DF /* PTAMObserver.m */,
+			);
+			path = "Focused App";
+			sourceTree = "<group>";
+		};
+		FAAFD74914F064AE002332DF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		FACB24D614EDE9C700D49789 /* Sessions */ = {
@@ -266,7 +292,9 @@
 				FAA088FB14EF2E8500713A44 /* PTPeriodLog.m in Sources */,
 				FAA088FE14EF2EA700713A44 /* PTLogEntry.m in Sources */,
 				FAA0890114EF2F1100713A44 /* PTLogDatabase.m in Sources */,
-				FAA0890D14EFF6F200713A44 /* PTObserverInfo.m in Sources */,
+				FAA0890D14EFF6F200713A44 /* PTLogObserver.m in Sources */,
+				FAAFD72614F053F6002332DF /* PTAppMonitor.m in Sources */,
+				FAAFD72914F05AE4002332DF /* PTAMObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

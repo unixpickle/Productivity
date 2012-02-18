@@ -22,13 +22,13 @@
 }
 
 - (void)addLogObserver:(id<PTPeriodLogObserver>)observer {
-    PTObserverInfo * info = [[PTObserverInfo alloc] initWithObserver:observer];
+    PTLogObserver * info = [[PTLogObserver alloc] initWithObserver:observer];
     [observers addObject:info];
 }
 
 - (void)removeLogObserver:(id<PTPeriodLogObserver>)observer {
     for (NSUInteger i = 0; i < [observers count]; i++) {
-        PTObserverInfo * info = [observers objectAtIndex:i];
+        PTLogObserver * info = [observers objectAtIndex:i];
         if ([info.observer isEqual:observer]) {
             [observers removeObjectAtIndex:i];
             i--;
@@ -73,7 +73,7 @@
     [entries addObject:logEntry];
     [entries sortUsingSelector:@selector(compare:)];
     NSUInteger index = [entries indexOfObject:logEntry];
-    for (PTObserverInfo * observer in observers) {
+    for (PTLogObserver * observer in observers) {
         [observer notifyLog:self addedAtIndex:index];
     }
 }
@@ -91,7 +91,7 @@
             break;
         }
     }
-    for (PTObserverInfo * observer in observers) {
+    for (PTLogObserver * observer in observers) {
         [observer notifyLog:self removedAtIndex:index];
     }
 }

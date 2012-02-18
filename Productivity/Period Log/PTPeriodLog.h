@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PTLogDatabase.h"
-#import "PTObserverInfo.h"
+#import "PTLogObserver.h"
 
 @interface PTPeriodLog : NSObject {
     NSCache * rowCache;
