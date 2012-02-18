@@ -23,6 +23,7 @@
 		FAA8C7A514EC829A002D8152 /* PTMusicObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C7A414EC829A002D8152 /* PTMusicObserver.m */; };
 		FAAFD72614F053F6002332DF /* PTAppMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAFD72514F053F6002332DF /* PTAppMonitor.m */; };
 		FAAFD72914F05AE4002332DF /* PTAMObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAFD72814F05AE4002332DF /* PTAMObserver.m */; };
+		FAAFD74C14F064D0002332DF /* PTController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAFD74B14F064D0002332DF /* PTController.m */; };
 		FACB24DD14EDE9C700D49789 /* PTKeyboardMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24D814EDE9C700D49789 /* PTKeyboardMonitor.m */; };
 		FACB24DE14EDE9C700D49789 /* PTPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24DA14EDE9C700D49789 /* PTPeriod.m */; };
 		FACB24DF14EDE9C700D49789 /* PTSession.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24DC14EDE9C700D49789 /* PTSession.m */; };
@@ -61,6 +62,8 @@
 		FAAFD72514F053F6002332DF /* PTAppMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTAppMonitor.m; sourceTree = "<group>"; };
 		FAAFD72714F05AE4002332DF /* PTAMObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTAMObserver.h; sourceTree = "<group>"; };
 		FAAFD72814F05AE4002332DF /* PTAMObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTAMObserver.m; sourceTree = "<group>"; };
+		FAAFD74A14F064D0002332DF /* PTController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTController.h; sourceTree = "<group>"; };
+		FAAFD74B14F064D0002332DF /* PTController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTController.m; sourceTree = "<group>"; };
 		FACB24C714EDDF8200D49789 /* PTState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTState.h; sourceTree = "<group>"; };
 		FACB24C814EDE03700D49789 /* PTStateObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTStateObserver.h; sourceTree = "<group>"; };
 		FACB24D714EDE9C700D49789 /* PTKeyboardMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTKeyboardMonitor.h; sourceTree = "<group>"; };
@@ -146,6 +149,7 @@
 				FACB24D614EDE9C700D49789 /* Sessions */,
 				FAA8C79814EC80F7002D8152 /* States */,
 				FAAFD74914F064AE002332DF /* Controller */,
+				FAAFD74D14F0678F002332DF /* View */,
 				FAA8C78D14EC80E6002D8152 /* PTAppDelegate.h */,
 				FAA8C78E14EC80E6002D8152 /* PTAppDelegate.m */,
 				FAA8C79014EC80E7002D8152 /* MainMenu.xib */,
@@ -202,8 +206,17 @@
 		FAAFD74914F064AE002332DF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FAAFD74A14F064D0002332DF /* PTController.h */,
+				FAAFD74B14F064D0002332DF /* PTController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		FAAFD74D14F0678F002332DF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FACB24D614EDE9C700D49789 /* Sessions */ = {
@@ -295,6 +308,7 @@
 				FAA0890D14EFF6F200713A44 /* PTLogObserver.m in Sources */,
 				FAAFD72614F053F6002332DF /* PTAppMonitor.m in Sources */,
 				FAAFD72914F05AE4002332DF /* PTAMObserver.m in Sources */,
+				FAAFD74C14F064D0002332DF /* PTController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
