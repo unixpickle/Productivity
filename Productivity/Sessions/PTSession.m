@@ -82,7 +82,10 @@
     if (idle) [self currentPeriod].idleDuration += sinceLast;
     lastUpdate = now;
     
-    if (period) [periods addObject:period];
+    if (period) {
+        period.startDate = now;
+        [periods addObject:period];
+    }
 }
 
 - (void)stateObserverChangedState:(id)sender {

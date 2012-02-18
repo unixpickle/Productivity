@@ -11,6 +11,7 @@
 @implementation PTPeriod
 
 @synthesize states;
+@synthesize startDate;
 @synthesize periodDuration;
 @synthesize idleDuration;
 @synthesize totalProductivity;
@@ -30,6 +31,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if ((self = [super init])) {
         states = [aDecoder decodeObjectForKey:@"states"];
+        startDate = [aDecoder decodeObjectForKey:@"date"];
         periodDuration = [aDecoder decodeDoubleForKey:@"duration"];
         idleDuration = [aDecoder decodeDoubleForKey:@"idleDuration"];
         totalProductivity = [aDecoder decodeIntegerForKey:@"productivity"];
@@ -40,6 +42,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:states forKey:@"states"];
+    [aCoder encodeObject:startDate forKey:@"date"];
     [aCoder encodeDouble:periodDuration forKey:@"duration"];
     [aCoder encodeDouble:idleDuration forKey:@"idleDuration"];
     [aCoder encodeInteger:totalProductivity forKey:@"productivity"];

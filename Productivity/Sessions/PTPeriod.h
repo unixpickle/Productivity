@@ -11,6 +11,7 @@
 
 @interface PTPeriod : NSObject <NSCoding> {
     NSArray * states;
+    NSDate * startDate;
     NSTimeInterval periodDuration;
     NSTimeInterval idleDuration;
     NSUInteger totalProductivity;
@@ -18,6 +19,7 @@
 }
 
 @property (nonatomic, retain) NSArray * states;
+@property (nonatomic, retain) NSDate * startDate;
 @property (readwrite) NSTimeInterval periodDuration;
 @property (readwrite) NSTimeInterval idleDuration;
 @property (readwrite) NSUInteger totalProductivity;
