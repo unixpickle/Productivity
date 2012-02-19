@@ -7,12 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "PTMusicObserver.h"
+#import "PTView.h"
 
 @interface PTAppDelegate : NSObject <NSApplicationDelegate> {
-    PTMusicObserver * observer;
+    PTView * view;
+    PTController * controller;
 }
 
-@property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSWindow * window;
+
+- (NSString *)logPath;
 
 @end

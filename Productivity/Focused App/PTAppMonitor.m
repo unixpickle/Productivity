@@ -10,6 +10,7 @@
 
 @interface PTAppMonitor (Private)
 
+- (void)readRules;
 - (void)writeRules;
 - (NSDictionary *)ruleDictionaryWithBundleID:(NSString *)bundleID enabled:(BOOL)flag;
 
@@ -24,20 +25,22 @@
 
 - (id)init {
     if ((self = [super init])) {
-        NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-        if ([defaults objectForKey:@"appRules"]) {
-            rules = [[defaults objectForKey:@"appRules"] mutableCopy];
-            if (![rules isKindOfClass:[NSMutableArray class]]) {
-                rules = [[NSMutableArray alloc] init];
-                [defaults setObject:rules forKey:@"appRules"];
-                [defaults synchronize];
+        [self readRules];
+        
+        NSArray * runningApps = [[NSWorkspace sharedWorkspace] runningApplications];
+        for (NSRunningApplication * application in runningApps) {
+            if ([application activationPolicy] != NSApplicationActivationPolicyRegular) {
+                continue;
             }
-        } else {
-            rules = [[NSMutableArray alloc] init];
+            NSString * bundleID = [application bundleIdentifier];
+            [self handleAppBundleID:bundleID];
         }
         
         appIcons = [[NSCache alloc] init];
         [appIcons setCountLimit:10];
+        appTitles = [[NSCache alloc] init];
+        [appTitles setCountLimit:1000];
+        
         observers = [[NSMutableArray alloc] init];
     }
     return self;
@@ -85,6 +88,21 @@
     
     [appIcons setObject:image forKey:bundleID];
     return image;
+}
+
+- (NSString *)titleForBundleID:(NSString *)bundleID {
+    if ([appTitles objectForKey:bundleID]) {
+        return [appTitles objectForKey:bundleID];
+    }
+    
+    NSString * path = [[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:bundleID];
+    if (!path) return nil;
+    
+    NSBundle * bundle = [NSBundle bundleWithPath:path];
+    NSString * dispName = [[bundle infoDictionary] objectForKey:@"CFBundleDisplayName"];
+    NSString * realName = [[bundle infoDictionary] objectForKey:@"CFBundleName"];
+    if (dispName) return dispName;
+    return realName;
 }
 
 - (BOOL)enabledForBundleID:(NSString *)bundleID {
@@ -137,6 +155,7 @@
 - (void)appFocusedNotification:(NSNotification *)notification {
     NSRunningApplication * application = [[notification userInfo] objectForKey:NSWorkspaceApplicationKey];
     NSString * bundleID = [application bundleIdentifier];
+    if (!bundleID) return;
     [self handleAppBundleID:bundleID];
     
     NSUInteger index = [[self applicationBundleIDs] indexOfObject:bundleID];
@@ -147,10 +166,14 @@
 
 - (void)appLaunchedNotification:(NSNotification *)notification {
     NSRunningApplication * application = [[notification userInfo] objectForKey:NSWorkspaceApplicationKey];
+    if ([application activationPolicy] != NSApplicationActivationPolicyRegular) {
+        return;
+    }
     [self handleAppBundleID:[application bundleIdentifier]];
 }
 
 - (void)handleAppBundleID:(NSString *)bundleID {
+    if (!bundleID) return;
     if (![[self applicationBundleIDs] containsObject:bundleID]) {
         NSDictionary * dictionary = [self ruleDictionaryWithBundleID:bundleID
                                                              enabled:NO];
@@ -164,14 +187,34 @@
 
 #pragma mark - Miscellaneous -
 
+- (void)readRules {
+    // TODO: remove the lines right under this one
+    rules = [[NSMutableArray alloc] init];
+    return;
+    
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"appRules"]) {
+        rules = [[defaults objectForKey:@"appRules"] mutableCopy];
+        if (![rules isKindOfClass:[NSMutableArray class]]) {
+            rules = [[NSMutableArray alloc] init];
+            [defaults setObject:rules forKey:@"appRules"];
+            [defaults synchronize];
+        }
+    } else {
+        rules = [[NSMutableArray alloc] init];
+    }
+}
+
 - (void)writeRules {
+    // TODO: remove the line right under this one
+    return;
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:rules forKey:@"appRules"];
     [defaults synchronize];
 }
 
 - (NSDictionary *)ruleDictionaryWithBundleID:(NSString *)bundleID enabled:(BOOL)flag {
-    return [NSDictionary dictionaryWithObjectsAndKeys:bundleID, @"bundleID",
+    return [NSDictionary dictionaryWithObjectsAndKeys:[bundleID copy], @"bundleID",
             [NSNumber numberWithBool:flag], @"enabled", nil];
 }
 

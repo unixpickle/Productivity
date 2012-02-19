@@ -26,7 +26,7 @@
             return nil;
         }
         
-        const char * createQuery = "CREATE TABLE IF NOT EXISTS periods (id INTEGER NOT NULL, creation INTEGER NOT NULL, period BLOB, PRIMARY KEY (id), UNIQUE (id))";
+        const char * createQuery = "CREATE TABLE IF NOT EXISTS periods (id INTEGER NOT NULL, creation INTEGER NOT NULL, period BLOB NOT NULL, PRIMARY KEY (id), UNIQUE (id))";
         result = sqlite3_exec(database, createQuery, NULL, NULL, NULL);
         if (result != SQLITE_OK) {
             if (error) *error = [self errorWithResult:result];
@@ -44,7 +44,7 @@
 - (NSArray *)entryDescriptors {
     NSMutableArray * mResult = [[NSMutableArray alloc] init];
     
-    NSString * query = @"SELECT (id, creation) FROM periods ORDER BY creation ASCENDING";
+    NSString * query = @"SELECT id, creation FROM periods ORDER BY creation ASC";
     sqlite3_stmt * statement = [self prepareStatement:query];
     while (sqlite3_step(statement) == SQLITE_ROW) {
         sqlite3_int64 uniqueID = sqlite3_column_int64(statement, 0);

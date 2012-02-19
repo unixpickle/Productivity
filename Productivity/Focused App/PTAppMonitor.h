@@ -13,6 +13,7 @@
     NSMutableArray * rules;
     NSMutableArray * observers;
     NSCache * appIcons;
+    NSCache * appTitles;
 }
 
 - (void)addMonitorObserver:(id<PTAppMonitorObserver>)observer;
@@ -20,6 +21,7 @@
 
 - (NSArray *)applicationBundleIDs;
 - (NSImage *)iconForBundleID:(NSString *)bundleID;
+- (NSString *)titleForBundleID:(NSString *)bundleID;
 - (BOOL)enabledForBundleID:(NSString *)bundleID;
 - (void)setEnabled:(BOOL)flag forBundleID:(NSString *)bundleID;
 
