@@ -6,7 +6,7 @@ Productivity will be a Mac application that records key-presses in conjunction w
 Status
 ======
 
-Back-end currently under development. No User-Interface implementation as of yet.
+Back-end currently under development. Very little user-interface code has been written as of yet.
 
 License
 =======
