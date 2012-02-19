@@ -13,6 +13,7 @@
 @synthesize currentSession;
 @synthesize periodLog;
 @synthesize appMonitor;
+@synthesize sessionStart;
 @synthesize stateObservers;
 
 - (id)initWithLogFile:(NSString *)logFile {
@@ -35,6 +36,7 @@
                                      userInfo:nil];
     }
     
+    sessionStart = [NSDate date];
     NSArray * observers = [NSArray arrayWithArray:stateObservers];
     currentSession = [[PTSession alloc] initWithStateObservers:observers];
     [currentSession setDelegate:self];
@@ -49,6 +51,7 @@
     }
     [currentSession endSession];
     currentSession = nil;
+    sessionStart = nil;
 }
 
 #pragma mark - Session Delegate -

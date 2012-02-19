@@ -14,8 +14,15 @@
     NSScrollView * scrollView;
     NSTableView * tableView;
     NSArray * bundleIDs;
+    
+    NSButton * startButton;
+    NSTextField * timeLabel;
+    NSTimer * timeLabelTimer;
 }
 
 - (id)initWithFrame:(NSRect)frameRect controller:(PTController *)aController;
+
+- (void)startStopPress:(id)sender;
+- (void)updateTimeLabel:(id)sender;
 
 @end

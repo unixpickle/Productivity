@@ -17,12 +17,14 @@
     PTPeriodLog * periodLog;
     PTAppMonitor * appMonitor;
     
+    NSDate * sessionStart;
     NSMutableArray * stateObservers;
 }
 
 @property (readonly) PTSession * currentSession;
 @property (readonly) PTPeriodLog * periodLog;
 @property (readonly) PTAppMonitor * appMonitor;
+@property (readonly) NSDate * sessionStart;
 @property (readonly) NSMutableArray * stateObservers;
 
 - (id)initWithLogFile:(NSString *)logFile;

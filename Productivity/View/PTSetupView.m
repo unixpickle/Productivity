@@ -8,6 +8,12 @@
 
 #import "PTSetupView.h"
 
+@interface PTSetupView (Private)
+
+- (void)setupAppsTable;
+
+@end
+
 @implementation PTSetupView
 
 - (id)initWithFrame:(NSRect)frameRect controller:(PTController *)aController {
@@ -16,35 +22,101 @@
         [controller.appMonitor addMonitorObserver:self];
         bundleIDs = [controller.appMonitor applicationBundleIDs];
         
-        NSTableColumn * enabled = [[NSTableColumn alloc] initWithIdentifier:@"Enabled"];
-        [[enabled headerCell] setTitle:@""];
-        [enabled setWidth:16];
+        NSTextField * labelField = [[NSTextField alloc] initWithFrame:NSMakeRect(10, frameRect.size.height - 28, 200, 18)];
+        [labelField setBordered:NO];
+        [labelField setBackgroundColor:[NSColor clearColor]];
+        [labelField setSelectable:NO];
+        [labelField setStringValue:@"Record data for these apps:"];
+        [labelField setAutoresizingMask:NSViewMinYMargin];
+        [self addSubview:labelField];
         
-        NSTableColumn * icon = [[NSTableColumn alloc] initWithIdentifier:@"Icon"];
-        [[icon headerCell] setTitle:@""];
-        [icon setWidth:24];
+        startButton = [[NSButton alloc] initWithFrame:NSMakeRect(frameRect.size.width - 85, 10,
+                                                                 80, 24)];
+        [startButton setBezelStyle:NSRoundedBezelStyle];
+        [startButton setTarget:self];
+        [startButton setAction:@selector(startStopPress:)];
+        [startButton setAutoresizingMask:NSViewMinXMargin];
+        [startButton setTitle:@"Start"];
+        [self addSubview:startButton];
         
-        NSTableColumn * appName = [[NSTableColumn alloc] initWithIdentifier:@"Name"];
-        [[appName headerCell] setTitle:@"Name"];
-        [appName setWidth:frameRect.size.width - 86];
+        timeLabel = [[NSTextField alloc] initWithFrame:NSMakeRect(10, 10, 100, 18)];
+        [timeLabel setBordered:NO];
+        [timeLabel setBackgroundColor:[NSColor clearColor]];
+        [timeLabel setSelectable:NO];
+        [timeLabel setAutoresizingMask:NSViewMaxYMargin];
+        [self addSubview:timeLabel];
         
-        
-        NSRect tableFrame = NSMakeRect(10, 10, frameRect.size.width - 20, frameRect.size.height - 20);
-        tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, 10, 10)];
-        [tableView addTableColumn:enabled];
-        [tableView addTableColumn:icon];
-        [tableView addTableColumn:appName];
-        [tableView setRowHeight:24];
-        [tableView setDataSource:self];
-        [tableView setDelegate:self];
-        scrollView = [[NSScrollView alloc] initWithFrame:tableFrame];
-        [scrollView setBorderType:NSBezelBorder];
-        [scrollView setDocumentView:tableView];
-        [scrollView setHasVerticalScroller:YES];
-
-        [self addSubview:scrollView];
+        [self setupAppsTable];
     }
     return self;
+}
+
+- (void)setupAppsTable {
+    NSRect frameRect = self.frame;
+    
+    NSTableColumn * enabled = [[NSTableColumn alloc] initWithIdentifier:@"Enabled"];
+    [[enabled headerCell] setTitle:@""];
+    [enabled setWidth:16];
+    
+    NSTableColumn * icon = [[NSTableColumn alloc] initWithIdentifier:@"Icon"];
+    [[icon headerCell] setTitle:@""];
+    [icon setWidth:24];
+    
+    NSTableColumn * appName = [[NSTableColumn alloc] initWithIdentifier:@"Name"];
+    [[appName headerCell] setTitle:@"Name"];
+    [appName setWidth:frameRect.size.width - 86];
+    
+    NSRect tableFrame = NSMakeRect(10, 40, frameRect.size.width - 20, frameRect.size.height - 68);
+    tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, 10, 10)];
+    [tableView addTableColumn:enabled];
+    [tableView addTableColumn:icon];
+    [tableView addTableColumn:appName];
+    [tableView setRowHeight:24];
+    [tableView setDataSource:self];
+    [tableView setDelegate:self];
+    scrollView = [[NSScrollView alloc] initWithFrame:tableFrame];
+    [scrollView setBorderType:NSBezelBorder];
+    [scrollView setDocumentView:tableView];
+    [scrollView setHasVerticalScroller:YES];
+    [scrollView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+    
+    [self addSubview:scrollView];
+}
+
+- (void)startStopPress:(id)sender {
+    if (!controller.sessionStart) {
+        [startButton setTitle:@"Stop"];
+        [controller beginSession];
+        timeLabelTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                          target:self
+                                                        selector:@selector(updateTimeLabel:)
+                                                        userInfo:nil
+                                                         repeats:YES];
+    } else {
+        [startButton setTitle:@"Start"];
+        [controller endSession];
+        [timeLabelTimer invalidate];
+        timeLabelTimer = nil;
+        [timeLabel setStringValue:@""];
+    }
+}
+
+- (void)updateTimeLabel:(id)sender {
+    NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:controller.sessionStart];
+    int days = (int)interval / 60 / 60 / 24;
+    int hours = ((int)interval / 60 / 60) % 24;
+    int minutes = ((int)interval / 60) % 60;
+    int seconds = (int)interval % 60;
+    
+    NSString * timeStr = nil;
+    if (days > 0) {
+        timeStr = [NSString stringWithFormat:@"%dd:%02d:%02d:%02d", days, hours, minutes, seconds];
+    } else if (hours > 0) {
+        timeStr = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
+    } else {
+        timeStr = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
+    }
+    [timeLabel setStringValue:[@"Active for " stringByAppendingString:timeStr]];
 }
 
 #pragma mark - App Monitor -
@@ -53,9 +125,6 @@
     bundleIDs = [controller.appMonitor applicationBundleIDs];
     [tableView insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:index]
                      withAnimation:NSTableViewAnimationEffectFade];
-}
-
-- (void)appMonitor:(PTAppMonitor *)monitor appFocused:(NSUInteger)index {
 }
 
 - (void)appMonitor:(PTAppMonitor *)monitor enableChanged:(NSUInteger)index {
