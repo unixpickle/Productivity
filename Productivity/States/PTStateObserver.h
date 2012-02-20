@@ -20,6 +20,7 @@
 
 @property (readonly, strong) id<PTState> state;
 @property (nonatomic, weak) id<PTStateObserverDelegate> delegate;
++ (Class)stateClass;
 - (void)startObserving;
 - (void)stopObserving;
 

@@ -27,6 +27,7 @@
     if ((self = [super init])) {
         [self readRules];
         
+        frontmost = [[NSWorkspace sharedWorkspace] frontmostApplication];
         NSArray * runningApps = [[NSWorkspace sharedWorkspace] runningApplications];
         for (NSRunningApplication * application in runningApps) {
             if ([application activationPolicy] != NSApplicationActivationPolicyRegular) {
@@ -98,11 +99,17 @@
     NSString * path = [[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:bundleID];
     if (!path) return nil;
     
+    // more simplistic approach; seems to be what Dock uses.
+    NSString * appName = [[path lastPathComponent] stringByDeletingPathExtension];
+    return appName;
+    
+    /*
     NSBundle * bundle = [NSBundle bundleWithPath:path];
     NSString * dispName = [[bundle infoDictionary] objectForKey:@"CFBundleDisplayName"];
     NSString * realName = [[bundle infoDictionary] objectForKey:@"CFBundleName"];
     if (dispName) return dispName;
     return realName;
+    */
 }
 
 - (BOOL)enabledForBundleID:(NSString *)bundleID {
@@ -133,6 +140,16 @@
     [self writeRules];
 }
 
+#pragma mark Frontmost
+
+- (NSString *)frontmostBundleID {
+    return [frontmost bundleIdentifier];
+}
+
+- (BOOL)enabledForFrontmostApplication {
+    return [self enabledForBundleID:[self frontmostBundleID]];
+}
+
 #pragma mark - Notifications -
 
 - (void)startObserving {
@@ -154,6 +171,8 @@
 
 - (void)appFocusedNotification:(NSNotification *)notification {
     NSRunningApplication * application = [[notification userInfo] objectForKey:NSWorkspaceApplicationKey];
+    frontmost = application;
+    
     NSString * bundleID = [application bundleIdentifier];
     if (!bundleID) return;
     [self handleAppBundleID:bundleID];
@@ -188,10 +207,6 @@
 #pragma mark - Miscellaneous -
 
 - (void)readRules {
-    // TODO: remove the lines right under this one
-    rules = [[NSMutableArray alloc] init];
-    return;
-    
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"appRules"]) {
         rules = [[defaults objectForKey:@"appRules"] mutableCopy];
@@ -206,8 +221,6 @@
 }
 
 - (void)writeRules {
-    // TODO: remove the line right under this one
-    return;
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:rules forKey:@"appRules"];
     [defaults synchronize];

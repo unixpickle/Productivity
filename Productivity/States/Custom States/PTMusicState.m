@@ -56,7 +56,7 @@
 
 - (NSString *)stateDescription {
     if (!songTitle && !songAlbum && !songArtist) return @"No song";
-    return [NSString stringWithFormat:@"Playing %@", songTitle];
+    return [NSString stringWithFormat:@"%@ by %@", songTitle, songArtist];
 }
 
 - (UInt32)stateHash {

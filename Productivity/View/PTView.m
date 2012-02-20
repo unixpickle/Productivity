@@ -23,7 +23,7 @@
     NSRect content = [self contentRect];
     NSRect viewFrame = NSMakeRect(0, 0, content.size.width, content.size.height);
     setupView = [[PTSetupView alloc] initWithFrame:viewFrame controller:controller];
-    logView = [[PTLogView alloc] initWithFrame:viewFrame];
+    logView = [[PTLogView alloc] initWithFrame:viewFrame controller:controller];
     
     NSTabViewItem * setupItem = [[NSTabViewItem alloc] initWithIdentifier:@"setup"];
     NSTabViewItem * logItem = [[NSTabViewItem alloc] initWithIdentifier:@"log"];

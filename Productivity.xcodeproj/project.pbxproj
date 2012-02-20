@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA22751714F1AF4100426131 /* PTSetupView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA22751314F1AF4100426131 /* PTSetupView.m */; };
+		FA22751814F1AF4100426131 /* PTPaddedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA22751414F1AF4100426131 /* PTPaddedCell.m */; };
+		FA22751C14F1B32600426131 /* PTLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA22751B14F1B32600426131 /* PTLogView.m */; };
 		FAA088F614EF28D200713A44 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA088F514EF28D100713A44 /* ScriptingBridge.framework */; };
 		FAA088FB14EF2E8500713A44 /* PTPeriodLog.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA088FA14EF2E8500713A44 /* PTPeriodLog.m */; };
 		FAA088FE14EF2EA700713A44 /* PTLogEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA088FD14EF2EA700713A44 /* PTLogEntry.m */; };
@@ -25,14 +28,18 @@
 		FAAFD72914F05AE4002332DF /* PTAMObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAFD72814F05AE4002332DF /* PTAMObserver.m */; };
 		FAAFD74C14F064D0002332DF /* PTController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAFD74B14F064D0002332DF /* PTController.m */; };
 		FAAFD75014F067BD002332DF /* PTView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAFD74F14F067BD002332DF /* PTView.m */; };
-		FAAFD75314F0681E002332DF /* PTSetupView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAFD75214F0681E002332DF /* PTSetupView.m */; };
-		FAAFD75614F06827002332DF /* PTLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAFD75514F06827002332DF /* PTLogView.m */; };
 		FACB24DD14EDE9C700D49789 /* PTKeyboardMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24D814EDE9C700D49789 /* PTKeyboardMonitor.m */; };
 		FACB24DE14EDE9C700D49789 /* PTPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24DA14EDE9C700D49789 /* PTPeriod.m */; };
 		FACB24DF14EDE9C700D49789 /* PTSession.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24DC14EDE9C700D49789 /* PTSession.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA22751314F1AF4100426131 /* PTSetupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTSetupView.m; sourceTree = "<group>"; };
+		FA22751414F1AF4100426131 /* PTPaddedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTPaddedCell.m; sourceTree = "<group>"; };
+		FA22751514F1AF4100426131 /* PTSetupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTSetupView.h; sourceTree = "<group>"; };
+		FA22751614F1AF4100426131 /* PTPaddedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPaddedCell.h; sourceTree = "<group>"; };
+		FA22751A14F1B32600426131 /* PTLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLogView.h; sourceTree = "<group>"; };
+		FA22751B14F1B32600426131 /* PTLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLogView.m; sourceTree = "<group>"; };
 		FAA088F514EF28D100713A44 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		FAA088F914EF2E8500713A44 /* PTPeriodLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTPeriodLog.h; sourceTree = "<group>"; };
 		FAA088FA14EF2E8500713A44 /* PTPeriodLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTPeriodLog.m; sourceTree = "<group>"; };
@@ -69,10 +76,6 @@
 		FAAFD74B14F064D0002332DF /* PTController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTController.m; sourceTree = "<group>"; };
 		FAAFD74E14F067BD002332DF /* PTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTView.h; sourceTree = "<group>"; };
 		FAAFD74F14F067BD002332DF /* PTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTView.m; sourceTree = "<group>"; };
-		FAAFD75114F0681E002332DF /* PTSetupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTSetupView.h; sourceTree = "<group>"; };
-		FAAFD75214F0681E002332DF /* PTSetupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTSetupView.m; sourceTree = "<group>"; };
-		FAAFD75414F06827002332DF /* PTLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLogView.h; sourceTree = "<group>"; };
-		FAAFD75514F06827002332DF /* PTLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLogView.m; sourceTree = "<group>"; };
 		FACB24C714EDDF8200D49789 /* PTState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTState.h; sourceTree = "<group>"; };
 		FACB24C814EDE03700D49789 /* PTStateObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTStateObserver.h; sourceTree = "<group>"; };
 		FACB24D714EDE9C700D49789 /* PTKeyboardMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTKeyboardMonitor.h; sourceTree = "<group>"; };
@@ -97,6 +100,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA22751214F1AF2400426131 /* Record View */ = {
+			isa = PBXGroup;
+			children = (
+				FA22751514F1AF4100426131 /* PTSetupView.h */,
+				FA22751314F1AF4100426131 /* PTSetupView.m */,
+				FA22751614F1AF4100426131 /* PTPaddedCell.h */,
+				FA22751414F1AF4100426131 /* PTPaddedCell.m */,
+			);
+			path = "Record View";
+			sourceTree = "<group>";
+		};
+		FA22751914F1B32600426131 /* Log View */ = {
+			isa = PBXGroup;
+			children = (
+				FA22751A14F1B32600426131 /* PTLogView.h */,
+				FA22751B14F1B32600426131 /* PTLogView.m */,
+			);
+			path = "Log View";
+			sourceTree = "<group>";
+		};
 		FAA088F814EF2E7600713A44 /* Period Log */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,12 +247,10 @@
 		FAAFD74D14F0678F002332DF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA22751214F1AF2400426131 /* Record View */,
+				FA22751914F1B32600426131 /* Log View */,
 				FAAFD74E14F067BD002332DF /* PTView.h */,
 				FAAFD74F14F067BD002332DF /* PTView.m */,
-				FAAFD75114F0681E002332DF /* PTSetupView.h */,
-				FAAFD75214F0681E002332DF /* PTSetupView.m */,
-				FAAFD75414F06827002332DF /* PTLogView.h */,
-				FAAFD75514F06827002332DF /* PTLogView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -325,8 +346,9 @@
 				FAAFD72914F05AE4002332DF /* PTAMObserver.m in Sources */,
 				FAAFD74C14F064D0002332DF /* PTController.m in Sources */,
 				FAAFD75014F067BD002332DF /* PTView.m in Sources */,
-				FAAFD75314F0681E002332DF /* PTSetupView.m in Sources */,
-				FAAFD75614F06827002332DF /* PTLogView.m in Sources */,
+				FA22751714F1AF4100426131 /* PTSetupView.m in Sources */,
+				FA22751814F1AF4100426131 /* PTPaddedCell.m in Sources */,
+				FA22751C14F1B32600426131 /* PTLogView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,7 @@
 - (void)removeLogObserver:(id<PTPeriodLogObserver>)observer;
 
 - (NSArray *)periodIDs;
-- (PTPeriod *)periodWithID:(NSUInteger)integer;
+- (PTPeriod *)periodForID:(NSUInteger)integer;
 - (void)addPeriod:(PTPeriod *)aPeriod;
 - (void)removePeriodWithID:(NSUInteger)periodID;
 

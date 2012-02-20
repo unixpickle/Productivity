@@ -14,6 +14,7 @@
     NSMutableArray * observers;
     NSCache * appIcons;
     NSCache * appTitles;
+    NSRunningApplication * frontmost;
 }
 
 - (void)addMonitorObserver:(id<PTAppMonitorObserver>)observer;
@@ -24,6 +25,9 @@
 - (NSString *)titleForBundleID:(NSString *)bundleID;
 - (BOOL)enabledForBundleID:(NSString *)bundleID;
 - (void)setEnabled:(BOOL)flag forBundleID:(NSString *)bundleID;
+
+- (NSString *)frontmostBundleID;
+- (BOOL)enabledForFrontmostApplication;
 
 - (void)startObserving;
 - (void)stopObserving;

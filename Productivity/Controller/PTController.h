@@ -19,6 +19,7 @@
     
     NSDate * sessionStart;
     NSMutableArray * stateObservers;
+    BOOL sessionIdle;
 }
 
 @property (readonly) PTSession * currentSession;

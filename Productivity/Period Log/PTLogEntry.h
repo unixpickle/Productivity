@@ -17,6 +17,6 @@
 @property (readonly) NSUInteger timestamp;
 
 - (id)initWithID:(NSUInteger)anID time:(NSUInteger)time;
-- (NSComparisonResult)compare:(PTLogEntry *)entry;
+- (NSComparisonResult)compareToEntry:(PTLogEntry *)entry;
 
 @end

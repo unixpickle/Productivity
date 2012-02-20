@@ -26,5 +26,6 @@
 @property (readwrite) NSUInteger idleProductivity;
 
 - (id)initWithStateObservers:(NSArray *)observers;
+- (id<PTState>)stateWithStateID:(NSString *)theID;
 
 @end

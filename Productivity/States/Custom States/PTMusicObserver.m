@@ -19,10 +19,14 @@
 @synthesize state;
 @synthesize delegate;
 
++ (Class)stateClass {
+    return [PTMusicState class];
+}
+
 - (id)init {
     if ((self = [super init])) {
         iTunesApplication * application = [SBApplication applicationWithBundleIdentifier:@"com.apple.iTunes"];
-        if ([application isRunning]) {
+        if ([application isRunning] && [application playerState] == iTunesEPlSPlaying) {
             iTunesTrack * track = [application currentTrack];
             NSString * title = [track name];
             NSString * artist = [track artist];

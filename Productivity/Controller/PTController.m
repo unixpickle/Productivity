@@ -22,6 +22,7 @@
         periodLog = [[PTPeriodLog alloc] initWithLogFile:logFile];
         appMonitor = [[PTAppMonitor alloc] init];
         if (!periodLog) return nil;
+        sessionIdle = ![appMonitor enabledForFrontmostApplication];
         
         PTMusicObserver * musicObserver = [[PTMusicObserver alloc] init];
         [stateObservers addObject:musicObserver];
@@ -36,11 +37,14 @@
                                      userInfo:nil];
     }
     
+    [appMonitor addMonitorObserver:self];
+    [appMonitor startObserving];
     sessionStart = [NSDate date];
     NSArray * observers = [NSArray arrayWithArray:stateObservers];
     currentSession = [[PTSession alloc] initWithStateObservers:observers];
     [currentSession setDelegate:self];
     [currentSession beginSession];
+    [currentSession setIdle:sessionIdle];
 }
 
 - (void)endSession {
@@ -49,6 +53,9 @@
                                        reason:@"Session not running."
                                      userInfo:nil];
     }
+    
+    [appMonitor removeMonitorObserver:self];
+    [appMonitor stopObserving]; 
     [currentSession endSession];
     currentSession = nil;
     sessionStart = nil;
@@ -63,12 +70,13 @@
 #pragma mark - App Monitor -
 
 - (void)appMonitor:(PTAppMonitor *)monitor appFocused:(NSUInteger)index {
-    NSString * bundleID = [[monitor applicationBundleIDs] objectAtIndex:index];
-    if ([monitor enabledForBundleID:bundleID]) {
-        [currentSession setIdle:NO];
-    } else {
-        [currentSession setIdle:YES];
-    }
+    sessionIdle = ![monitor enabledForFrontmostApplication];
+    [currentSession setIdle:sessionIdle];
+}
+
+- (void)appMonitor:(PTAppMonitor *)monitor enableChanged:(NSUInteger)index {
+    sessionIdle = ![appMonitor enabledForFrontmostApplication];
+    [currentSession setIdle:sessionIdle];
 }
 
 @end

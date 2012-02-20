@@ -28,6 +28,15 @@
     return self;
 }
 
+- (id<PTState>)stateWithStateID:(NSString *)theID {
+    for (id<PTState> state in states) {
+        if ([[[state class] stateID] isEqualToString:theID]) {
+            return state;
+        }
+    }
+    return nil;
+}
+
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if ((self = [super init])) {
         states = [aDecoder decodeObjectForKey:@"states"];

@@ -51,7 +51,7 @@
     return [NSArray arrayWithArray:mPeriodIDs];
 }
 
-- (PTPeriod *)periodWithID:(NSUInteger)integer {
+- (PTPeriod *)periodForID:(NSUInteger)integer {
     NSNumber * idObj = [NSNumber numberWithUnsignedInteger:integer];
     if ([rowCache objectForKey:idObj]) {
         return [rowCache objectForKey:idObj];
@@ -67,30 +67,45 @@
 - (void)addPeriod:(PTPeriod *)aPeriod {
     NSUInteger epoch = (NSUInteger)[[aPeriod startDate] timeIntervalSince1970];
     NSUInteger addedID = [database insertPeriod:aPeriod];
-    
     PTLogEntry * logEntry = [[PTLogEntry alloc] initWithID:addedID time:epoch];
-    // TODO: add this to the list more efficiently
-    [entries addObject:logEntry];
-    [entries sortUsingSelector:@selector(compare:)];
-    NSUInteger index = [entries indexOfObject:logEntry];
+    
+    NSUInteger insertIndex = 0;
+    for (NSUInteger i = 0; i < [entries count]; i++) {
+        if ([[entries objectAtIndex:i] compareToEntry:logEntry] != NSOrderedDescending) {
+            insertIndex = i + 1;
+        }
+    }
+    
     for (PTLogObserver * observer in observers) {
-        [observer notifyLog:self addedAtIndex:index];
+        [observer notifyLog:self willAddPeriod:aPeriod atIndex:insertIndex];
+    }
+    
+    [entries insertObject:logEntry atIndex:insertIndex];
+    for (PTLogObserver * observer in observers) {
+        [observer notifyLog:self addedAtIndex:insertIndex];
     }
 }
 
 - (void)removePeriodWithID:(NSUInteger)periodID {
     NSUInteger index = 0;
-    NSNumber * idObj = [NSNumber numberWithUnsignedInteger:periodID];
-    if ([rowCache objectForKey:idObj]) [rowCache removeObjectForKey:idObj];
-    [database removePeriodForID:periodID];
+    
     for (NSUInteger i = 0; i < [entries count]; i++) {
         PTLogEntry * entry = [entries objectAtIndex:i];
         if (entry.uniqueID == periodID) {
             index = i;
-            [entries removeObjectAtIndex:i];
             break;
         }
     }
+    
+    for (PTLogObserver * observer in observers) {
+        [observer notifyLog:self willRemovePeriodAtIndex:index];
+    }
+    
+    NSNumber * idObj = [NSNumber numberWithUnsignedInteger:periodID];
+    if ([rowCache objectForKey:idObj]) [rowCache removeObjectForKey:idObj];
+    [database removePeriodForID:periodID];
+    [entries removeObjectAtIndex:index];
+    
     for (PTLogObserver * observer in observers) {
         [observer notifyLog:self removedAtIndex:index];
     }

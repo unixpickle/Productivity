@@ -77,9 +77,10 @@
     
     const void * periodBlob = sqlite3_column_blob(statement, 0);
     int length = sqlite3_column_bytes(statement, 0);
+    NSData * data = [NSData dataWithBytes:periodBlob length:length];
+
     sqlite3_finalize(statement);
     
-    NSData * data = [NSData dataWithBytes:periodBlob length:length];
     PTPeriod * period = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     return period;
 }
@@ -96,7 +97,7 @@
         @throw [self exceptionWithResult:result];
     }
     
-    result = sqlite3_bind_blob(statement, 2, [encoded bytes], (int)[encoded length], SQLITE_STATIC);
+    result = sqlite3_bind_blob(statement, 2, [encoded bytes], (int)[encoded length], SQLITE_TRANSIENT);
     if (result != SQLITE_OK) {
         sqlite3_finalize(statement);
         @throw [self exceptionWithResult:result];
@@ -123,7 +124,7 @@
     }
     
     result = sqlite3_step(statement);
-    if (result != SQLITE_OK) {
+    if (result == SQLITE_ERROR) {
         sqlite3_finalize(statement);
         @throw [self exceptionWithResult:result];
     }

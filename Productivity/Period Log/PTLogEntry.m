@@ -21,7 +21,7 @@
     return self;
 }
 
-- (NSComparisonResult)compare:(PTLogEntry *)entry {
+- (NSComparisonResult)compareToEntry:(PTLogEntry *)entry {
     if ([entry timestamp] > timestamp) return NSOrderedAscending;
     else if ([entry timestamp] < timestamp) return NSOrderedDescending;
     return NSOrderedSame;
