@@ -14,14 +14,6 @@
 @synthesize songArtist;
 @synthesize songAlbum;
 
-+ (NSString *)stateID {
-    return @"MusicState";
-}
-
-+ (NSString *)stateString {
-    return @"Song";
-}
-
 - (id)initWithTitle:(NSString *)title artist:(NSString *)artist album:(NSString *)album {
     if ((self = [super init])) {
         songTitle = title;
@@ -30,6 +22,10 @@
     }
     return self;
 }
+
+#pragma mark - Various Protocols -
+
+#pragma mark Coding
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if ((self = [super init])) {
@@ -46,6 +42,8 @@
     if (songAlbum) [aCoder encodeObject:songAlbum forKey:@"album"];
 }
 
+#pragma mark Copying
+
 - (id)copyWithZone:(NSZone *)zone {
     PTMusicState * state;
     state = [[PTMusicState allocWithZone:zone] initWithTitle:[songTitle copy]
@@ -53,6 +51,8 @@
                                                        album:[songAlbum copy]];
     return state;
 }
+
+#pragma mark Compare
 
 - (BOOL)isEqualToMusicState:(PTMusicState *)aState {
     if (![[aState songTitle] isEqualToString:self.songTitle] && self.songTitle != aState.songTitle) {
@@ -67,8 +67,30 @@
     return YES;
 }
 
+- (BOOL)isEqualToState:(id<PTState>)aState {
+    return [self isEqual:aState];
+}
+
+- (BOOL)isEqual:(id)object {
+    if ([object isKindOfClass:[self class]]) {
+        return [self isEqualToMusicState:object];
+    }
+    return NO;
+}
+
+#pragma mark State
+
++ (NSString *)stateID {
+    return @"MusicState";
+}
+
++ (NSString *)stateString {
+    return @"Song";
+}
+
 - (NSString *)stateDescription {
     if (!songTitle && !songAlbum && !songArtist) return @"No song";
+    if (!songArtist) return [songTitle copy];
     return [NSString stringWithFormat:@"%@ by %@", songTitle, songArtist];
 }
 

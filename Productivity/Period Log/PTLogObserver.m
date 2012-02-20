@@ -19,21 +19,9 @@
     return self;
 }
 
-- (void)notifyLog:(PTPeriodLog *)log willRemoveAtIndex:(NSUInteger)index {
-    if ([observer respondsToSelector:@selector(periodLog:willRemovePeriodAtIndex:)]) {
-        [observer periodLog:log willRemovePeriodAtIndex:index];
-    }
-}
-
-- (void)notifyLog:(PTPeriodLog *)log willAdd:(PTPeriod *)period atIndex:(NSUInteger)index {
-    if ([observer respondsToSelector:@selector(periodLog:willAddPeriod:atIndex:)]) {
-        [observer periodLog:log willAddPeriod:period atIndex:index];
-    }
-}
-
-- (void)notifyLog:(PTPeriodLog *)log removedAtIndex:(NSUInteger)index {
-    if ([observer respondsToSelector:@selector(periodLog:removedPeriodAtIndex:)]) {
-        [observer periodLog:log removedPeriodAtIndex:index];
+- (void)notifyLog:(PTPeriodLog *)log removed:(PTPeriod *)period atIndex:(NSUInteger)index {
+    if ([observer respondsToSelector:@selector(periodLog:removedPeriod:atIndex:)]) {
+        [observer periodLog:log removedPeriod:period atIndex:index];
     }
 }
 

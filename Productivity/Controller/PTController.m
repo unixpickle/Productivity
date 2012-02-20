@@ -37,8 +37,8 @@
     }
     
     [appMonitor addMonitorObserver:self];
-    sessionIdle = ![appMonitor enabledForFrontmostApplication];
     [appMonitor startObserving];
+    sessionIdle = ![appMonitor enabledForFrontmostApplication];
     
     sessionStart = [NSDate date];
     NSArray * observers = [NSArray arrayWithArray:stateObservers];

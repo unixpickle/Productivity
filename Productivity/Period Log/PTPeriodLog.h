@@ -15,6 +15,7 @@
     NSMutableArray * entries;
     PTLogDatabase * database;
     NSMutableArray * observers;
+    NSLock * operationLock;
 }
 
 - (id)initWithLogFile:(NSString *)file;

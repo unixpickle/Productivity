@@ -58,4 +58,26 @@
     [aCoder encodeInteger:idleProductivity forKey:@"idleProductivity"];
 }
 
+- (BOOL)isEqualToPeriod:(PTPeriod *)aPeriod {
+    if (![aPeriod.states isEqualToArray:self.states]) {
+        return NO;
+    }
+    if (![aPeriod.startDate isEqualToDate:self.startDate]) {
+        return NO;
+    }
+    if (aPeriod.periodDuration != self.periodDuration) {
+        return NO;
+    }
+    if (aPeriod.totalProductivity != self.totalProductivity) {
+        return NO;
+    }
+    if (aPeriod.idleProductivity != self.idleProductivity) {
+        return NO;
+    }
+    if (aPeriod.idleDuration != self.idleDuration) {
+        return NO;
+    }
+    return YES;
+}
+
 @end

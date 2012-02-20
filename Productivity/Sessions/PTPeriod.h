@@ -27,5 +27,6 @@
 
 - (id)initWithStateObservers:(NSArray *)observers;
 - (id<PTState>)stateWithStateID:(NSString *)theID;
+- (BOOL)isEqualToPeriod:(PTPeriod *)aPeriod;
 
 @end

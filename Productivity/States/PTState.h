@@ -14,5 +14,6 @@
 + (NSString *)stateString;
 - (NSString *)stateDescription;
 - (UInt32)stateHash;
+- (BOOL)isEqualToState:(id<PTState>)aState;
 
 @end

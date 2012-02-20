@@ -31,6 +31,8 @@
 		FACB24DD14EDE9C700D49789 /* PTKeyboardMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24D814EDE9C700D49789 /* PTKeyboardMonitor.m */; };
 		FACB24DE14EDE9C700D49789 /* PTPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24DA14EDE9C700D49789 /* PTPeriod.m */; };
 		FACB24DF14EDE9C700D49789 /* PTSession.m in Sources */ = {isa = PBXBuildFile; fileRef = FACB24DC14EDE9C700D49789 /* PTSession.m */; };
+		FAEFCAA514F29ABB0096E1A2 /* PTStatistic.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEFCAA414F29ABB0096E1A2 /* PTStatistic.m */; };
+		FAEFCAAB14F2C0270096E1A2 /* PTStatObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEFCAAA14F2C0270096E1A2 /* PTStatObserver.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,10 @@
 		FACB24DA14EDE9C700D49789 /* PTPeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTPeriod.m; sourceTree = "<group>"; };
 		FACB24DB14EDE9C700D49789 /* PTSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTSession.h; sourceTree = "<group>"; };
 		FACB24DC14EDE9C700D49789 /* PTSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTSession.m; sourceTree = "<group>"; };
+		FAEFCAA314F29ABB0096E1A2 /* PTStatistic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTStatistic.h; sourceTree = "<group>"; };
+		FAEFCAA414F29ABB0096E1A2 /* PTStatistic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTStatistic.m; sourceTree = "<group>"; };
+		FAEFCAA914F2C0270096E1A2 /* PTStatObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTStatObserver.h; sourceTree = "<group>"; };
+		FAEFCAAA14F2C0270096E1A2 /* PTStatObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTStatObserver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,7 @@
 		FAA088F814EF2E7600713A44 /* Period Log */ = {
 			isa = PBXGroup;
 			children = (
+				FAEFCAA114F29AAF0096E1A2 /* Statistics */,
 				FAA088F914EF2E8500713A44 /* PTPeriodLog.h */,
 				FAA088FA14EF2E8500713A44 /* PTPeriodLog.m */,
 				FAA088FC14EF2EA700713A44 /* PTLogEntry.h */,
@@ -268,6 +275,17 @@
 			path = Sessions;
 			sourceTree = "<group>";
 		};
+		FAEFCAA114F29AAF0096E1A2 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				FAEFCAA314F29ABB0096E1A2 /* PTStatistic.h */,
+				FAEFCAA414F29ABB0096E1A2 /* PTStatistic.m */,
+				FAEFCAA914F2C0270096E1A2 /* PTStatObserver.h */,
+				FAEFCAAA14F2C0270096E1A2 /* PTStatObserver.m */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -349,6 +367,8 @@
 				FA22751714F1AF4100426131 /* PTSetupView.m in Sources */,
 				FA22751814F1AF4100426131 /* PTPaddedCell.m in Sources */,
 				FA22751C14F1B32600426131 /* PTLogView.m in Sources */,
+				FAEFCAA514F29ABB0096E1A2 /* PTStatistic.m in Sources */,
+				FAEFCAAB14F2C0270096E1A2 /* PTStatObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

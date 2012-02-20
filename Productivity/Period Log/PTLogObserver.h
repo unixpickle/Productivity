@@ -14,9 +14,7 @@
 @protocol PTPeriodLogObserver <NSObject>
 
 @optional
-- (void)periodLog:(PTPeriodLog *)log willRemovePeriodAtIndex:(NSUInteger)index;
-- (void)periodLog:(PTPeriodLog *)log removedPeriodAtIndex:(NSUInteger)index;
-- (void)periodLog:(PTPeriodLog *)log willAddPeriod:(PTPeriod *)period atIndex:(NSUInteger)index;
+- (void)periodLog:(PTPeriodLog *)log removedPeriod:(PTPeriod *)period atIndex:(NSUInteger)index;
 - (void)periodLog:(PTPeriodLog *)log addedPeriodAtIndex:(NSUInteger)index;
 
 @end
@@ -28,9 +26,7 @@
 @property (nonatomic, weak) id<PTPeriodLogObserver> observer;
 
 - (id)initWithObserver:(id<PTPeriodLogObserver>)anObserver;
-- (void)notifyLog:(PTPeriodLog *)log willRemoveAtIndex:(NSUInteger)index;
-- (void)notifyLog:(PTPeriodLog *)log willAdd:(PTPeriod *)period atIndex:(NSUInteger)index;
-- (void)notifyLog:(PTPeriodLog *)log removedAtIndex:(NSUInteger)index;
+- (void)notifyLog:(PTPeriodLog *)log removed:(PTPeriod *)period atIndex:(NSUInteger)index;
 - (void)notifyLog:(PTPeriodLog *)log addedAtIndex:(NSUInteger)index;
 
 
