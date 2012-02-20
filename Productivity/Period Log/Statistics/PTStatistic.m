@@ -13,6 +13,7 @@
 @synthesize state;
 @synthesize totalKeys;
 @synthesize totalTime;
+@synthesize stateCount;
 
 - (id)initWithState:(id<PTState>)aState {
     if ((self = [super init])) {

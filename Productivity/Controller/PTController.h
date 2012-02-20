@@ -10,12 +10,14 @@
 #import "PTSession.h"
 #import "PTAppMonitor.h"
 #import "PTPeriodLog.h"
+#import "PTStatObserver.h"
 #import "PTMusicObserver.h"
 
 @interface PTController : NSObject <PTSessionDelegate, PTAppMonitorObserver> {
     PTSession * currentSession;
     PTPeriodLog * periodLog;
     PTAppMonitor * appMonitor;
+    PTStatObserver * statObserver;
     
     NSDate * sessionStart;
     NSMutableArray * stateObservers;
@@ -25,6 +27,7 @@
 @property (readonly) PTSession * currentSession;
 @property (readonly) PTPeriodLog * periodLog;
 @property (readonly) PTAppMonitor * appMonitor;
+@property (readonly) PTStatObserver * statObserver;
 @property (readonly) NSDate * sessionStart;
 @property (readonly) NSMutableArray * stateObservers;
 

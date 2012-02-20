@@ -13,11 +13,13 @@
     id<PTState> state;
     NSInteger totalKeys;
     NSTimeInterval totalTime;
+    NSUInteger stateCount;
 }
 
 @property (readonly) id<PTState> state;
 @property (readwrite) NSInteger totalKeys;
 @property (readwrite) NSTimeInterval totalTime;
+@property (readwrite) NSUInteger stateCount;
 
 - (id)initWithState:(id<PTState>)aState;
 

@@ -13,7 +13,7 @@
 - (void)processThread;
 - (void)processPeriod:(PTPeriod *)aPeriod;
 - (void)unprocessPeriod:(PTPeriod *)aPeriod;
-- (void)addTime:(NSTimeInterval)time keys:(NSInteger)prod forState:(id<PTState>)state;
+- (void)addTime:(NSTimeInterval)time keys:(NSInteger)prod forState:(id<PTState>)state adding:(BOOL)adding;
 - (void)informDelegateChange;
 
 @end
@@ -112,7 +112,7 @@
     NSTimeInterval liveTime = aPeriod.periodDuration - aPeriod.idleDuration;
     NSInteger liveKeys = aPeriod.totalProductivity - aPeriod.idleProductivity;
     for (id<PTState> state in aPeriod.states) {
-        [self addTime:liveTime keys:liveKeys forState:state];
+        [self addTime:liveTime keys:liveKeys forState:state adding:YES];
     }
 }
 
@@ -120,16 +120,16 @@
     NSTimeInterval liveTime = aPeriod.periodDuration - aPeriod.idleDuration;
     NSInteger liveKeys = aPeriod.totalProductivity - aPeriod.idleProductivity;
     for (id<PTState> state in aPeriod.states) {
-        [self addTime:-liveTime keys:-liveKeys forState:state];
+        [self addTime:-liveTime keys:-liveKeys forState:state adding:NO];
     }
 }
 
-- (void)addTime:(NSTimeInterval)time keys:(NSInteger)prod forState:(id<PTState>)state {
+- (void)addTime:(NSTimeInterval)time keys:(NSInteger)prod forState:(id<PTState>)state adding:(BOOL)adding {
     PTStatistic * statistic = nil;
     @synchronized (statistics) {
         for (PTStatistic * stat in statistics) {
             if ([stat.state isEqualToState:state]) {
-                statistic = state;
+                statistic = stat;
                 break;
             }
         }
@@ -139,6 +139,13 @@
         }
         statistic.totalKeys += prod;
         statistic.totalTime += time;
+        
+        if (adding) statistic.stateCount += 1;
+        else statistic.stateCount -= 1;
+        
+        if (statistic.stateCount == 0) {
+            [statistics removeObject:statistic];
+        }
     }
     [self informDelegateChange];
 }

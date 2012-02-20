@@ -13,6 +13,7 @@
 @synthesize currentSession;
 @synthesize periodLog;
 @synthesize appMonitor;
+@synthesize statObserver;
 @synthesize sessionStart;
 @synthesize stateObservers;
 
@@ -21,8 +22,10 @@
         stateObservers = [[NSMutableArray alloc] init];
         periodLog = [[PTPeriodLog alloc] initWithLogFile:logFile];
         appMonitor = [[PTAppMonitor alloc] init];
+        statObserver = [[PTStatObserver alloc] initWithPeriodLog:periodLog];
         if (!periodLog) return nil;
         
+        [statObserver startObserving];
         PTMusicObserver * musicObserver = [[PTMusicObserver alloc] init];
         [stateObservers addObject:musicObserver];
     }
@@ -61,6 +64,10 @@
     [currentSession endSession];
     currentSession = nil;
     sessionStart = nil;
+}
+
+- (void)dealloc {
+    [statObserver stopObserving];
 }
 
 #pragma mark - Session Delegate -
