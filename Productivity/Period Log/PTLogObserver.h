@@ -28,8 +28,8 @@
 @property (nonatomic, weak) id<PTPeriodLogObserver> observer;
 
 - (id)initWithObserver:(id<PTPeriodLogObserver>)anObserver;
-- (void)notifyLog:(PTPeriodLog *)log willRemovePeriodAtIndex:(NSUInteger)index;
-- (void)notifyLog:(PTPeriodLog *)log willAddPeriod:(PTPeriod *)period atIndex:(NSUInteger)index;
+- (void)notifyLog:(PTPeriodLog *)log willRemoveAtIndex:(NSUInteger)index;
+- (void)notifyLog:(PTPeriodLog *)log willAdd:(PTPeriod *)period atIndex:(NSUInteger)index;
 - (void)notifyLog:(PTPeriodLog *)log removedAtIndex:(NSUInteger)index;
 - (void)notifyLog:(PTPeriodLog *)log addedAtIndex:(NSUInteger)index;
 

@@ -63,6 +63,7 @@
 
 - (void)updateTrackInfo:(NSNotification *)notification {
     NSString * playerState = [[notification userInfo] objectForKey:@"Player State"];
+    PTMusicState * oldState = state;
     if (![playerState isEqualToString:@"Playing"]) {
         state = [[PTMusicState alloc] initWithTitle:nil artist:nil album:nil];
     } else {
@@ -72,7 +73,9 @@
         state = [[PTMusicState alloc] initWithTitle:title artist:artist album:album];
     }
     if ([delegate respondsToSelector:@selector(stateObserverChangedState:)]) {
-        [delegate stateObserverChangedState:self];
+        if (![self.musicState isEqualToMusicState:oldState]) {
+            [delegate stateObserverChangedState:self];
+        }
     }
 }
 

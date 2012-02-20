@@ -77,7 +77,7 @@
     }
     
     for (PTLogObserver * observer in observers) {
-        [observer notifyLog:self willAddPeriod:aPeriod atIndex:insertIndex];
+        [observer notifyLog:self willAdd:aPeriod atIndex:insertIndex];
     }
     
     [entries insertObject:logEntry atIndex:insertIndex];
@@ -98,7 +98,7 @@
     }
     
     for (PTLogObserver * observer in observers) {
-        [observer notifyLog:self willRemovePeriodAtIndex:index];
+        [observer notifyLog:self willRemoveAtIndex:index];
     }
     
     NSNumber * idObj = [NSNumber numberWithUnsignedInteger:periodID];

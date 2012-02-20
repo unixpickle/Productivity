@@ -54,6 +54,19 @@
     return state;
 }
 
+- (BOOL)isEqualToMusicState:(PTMusicState *)aState {
+    if (![[aState songTitle] isEqualToString:self.songTitle] && self.songTitle != aState.songTitle) {
+        return NO;
+    }
+    if (![[aState songArtist] isEqualToString:self.songArtist] && self.songArtist != aState.songArtist) {
+        return NO;
+    }
+    if (![[aState songAlbum] isEqualToString:self.songAlbum] && self.songAlbum != aState.songAlbum) {
+        return NO;
+    }
+    return YES;
+}
+
 - (NSString *)stateDescription {
     if (!songTitle && !songAlbum && !songArtist) return @"No song";
     return [NSString stringWithFormat:@"%@ by %@", songTitle, songArtist];

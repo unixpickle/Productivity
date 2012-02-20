@@ -19,5 +19,6 @@
 @property (readonly) NSString * songAlbum;
 
 - (id)initWithTitle:(NSString *)title artist:(NSString *)artist album:(NSString *)album;
+- (BOOL)isEqualToMusicState:(PTMusicState *)aState;
 
 @end

@@ -19,13 +19,13 @@
     return self;
 }
 
-- (void)notifyLog:(PTPeriodLog *)log willRemovePeriodAtIndex:(NSUInteger)index {
+- (void)notifyLog:(PTPeriodLog *)log willRemoveAtIndex:(NSUInteger)index {
     if ([observer respondsToSelector:@selector(periodLog:willRemovePeriodAtIndex:)]) {
         [observer periodLog:log willRemovePeriodAtIndex:index];
     }
 }
 
-- (void)notifyLog:(PTPeriodLog *)log willAddPeriod:(PTPeriod *)period atIndex:(NSUInteger)index {
+- (void)notifyLog:(PTPeriodLog *)log willAdd:(PTPeriod *)period atIndex:(NSUInteger)index {
     if ([observer respondsToSelector:@selector(periodLog:willAddPeriod:atIndex:)]) {
         [observer periodLog:log willAddPeriod:period atIndex:index];
     }

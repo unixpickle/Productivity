@@ -22,7 +22,6 @@
         periodLog = [[PTPeriodLog alloc] initWithLogFile:logFile];
         appMonitor = [[PTAppMonitor alloc] init];
         if (!periodLog) return nil;
-        sessionIdle = ![appMonitor enabledForFrontmostApplication];
         
         PTMusicObserver * musicObserver = [[PTMusicObserver alloc] init];
         [stateObservers addObject:musicObserver];
@@ -38,7 +37,9 @@
     }
     
     [appMonitor addMonitorObserver:self];
+    sessionIdle = ![appMonitor enabledForFrontmostApplication];
     [appMonitor startObserving];
+    
     sessionStart = [NSDate date];
     NSArray * observers = [NSArray arrayWithArray:stateObservers];
     currentSession = [[PTSession alloc] initWithStateObservers:observers];
@@ -55,7 +56,8 @@
     }
     
     [appMonitor removeMonitorObserver:self];
-    [appMonitor stopObserving]; 
+    [appMonitor stopObserving];
+    
     [currentSession endSession];
     currentSession = nil;
     sessionStart = nil;
